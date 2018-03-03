@@ -23,12 +23,13 @@ require '../app/init.php';
          </div>
          <div class="collapse navbar-collapse" id="navbar">
            <ul class="nav navbar-nav">
-             <li><a href="#"></a>Send SMS Message</li>
-               <li><a href="#"></a>Send Code</li>
-               <li><a href="#"></a>Verification</li>
+             <li><a href="index.php">Send SMS Message</a></li>
+               <li><a href="structure.php">Send Code</a></li>
+               <li><a href="verify.php">Verification</a></li>
            </ul>
          </div>
        </div>
      </nav>
-   </body>
- </html>
+     <div class="container">
+
+    
