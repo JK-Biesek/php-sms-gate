@@ -21,7 +21,12 @@ require '../app/init.php';
            </button>
            <a class="navbar-brand" href="#">SMS Appication</a>
          </div>
-        
+         <div class="collapse navbar-collapse" id="navbar">
+           <ul class="nav navbar-nav">
+             <li><a href="#"></a>Send SMS Message</li>
+               <li><a href="#"></a>Send Code</li>
+               <li><a href="#"></a>Verification</li>
+           </ul>
          </div>
        </div>
      </nav>
