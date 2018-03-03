@@ -7,7 +7,7 @@ require '../app/init.php';
      <meta charset="utf-8">
      <title>SMS</title>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-     <link rel="stylesheet" href="/css/master.css">
+     <link rel="stylesheet" href="../public/css/master.css">
    </head>
    <body>
      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -31,5 +31,3 @@ require '../app/init.php';
        </div>
      </nav>
      <div class="container">
-
-    

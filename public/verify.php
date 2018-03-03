@@ -6,8 +6,12 @@ if (isset($_POST['submit'])) {
   if (isset($_POST['phone']) && isset($_POST['sms'])) {
     $number = $_POST['phone'];
     $message = $_POST['sms'];
-    $client = new Clinet($config['account_id'],$config['auth_token']);
-    $client->account>messages->create($number,['number' => $config['account_id'],'body' => $message,]);
+    $client = new Client($config['account_id'],$config['auth_token']);
+    $client->account->messages->create($number,['from' => $config['phone_no'],'body' => $message,]);
+
+    echo '
+    <h1 class="alert alert-success">Your Message has been send succesfully !</h1>
+    ';
   }
 }
 ?>
