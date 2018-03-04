@@ -14,11 +14,11 @@ if (isset($_POST['submit'])) {
   if (isset($_POST['phone']) && isset($_POST['sms'])) {
     $number = $_POST['phone'];
     $message = $_POST['sms'];
-    $client = new Client($config['account_id'],$config['auth_token']);
-    $client->account->messages->create($number,['from' => $config['phone_no'],'body' => $message,]);
+    //$client = new Client($config['account_id'],$config['auth_token']);
+    //$client->account->messages->create($number,['from' => $config['phone_no'],'body' => $message,]);
 
     echo '
-    <h1 class="alert alert-success">Your Message has been send succesfully !</h1>
+    <h1 class="alert alert-success text-center" id="msg_send">Your Message has been sent succesfully !</h1>
     ';
   }
 }
@@ -58,6 +58,7 @@ if (isset($_POST['submit'])) {
      $('#hide').removeClass('hidden');
      $('#verif_form').addClass('hidden');
     }
+     $('#msg_send').delay(5000).fadeOut(400);
   });
 </script>
  <?php require '../includes/footer.php'; ?>
