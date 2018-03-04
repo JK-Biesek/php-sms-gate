@@ -8,14 +8,17 @@ if(isset($_POST['verify'])){
   if($verif_code == $_SESSION['code']){
     $verifier = 'success';
   }
+  else {
+    echo '<h1 class="alert alert-danger text-center">Your code is not valid!</h1>';
+  }
 }
 
 if (isset($_POST['submit'])) {
   if (isset($_POST['phone']) && isset($_POST['sms'])) {
     $number = $_POST['phone'];
     $message = $_POST['sms'];
-    //$client = new Client($config['account_id'],$config['auth_token']);
-    //$client->account->messages->create($number,['from' => $config['phone_no'],'body' => $message,]);
+    $client = new Client($config['account_id'],$config['auth_token']);
+    $client->account->messages->create($number,['from' => $config['phone_no'],'body' => $message,]);
 
     echo '
     <h1 class="alert alert-success text-center" id="msg_send">Your Message has been sent succesfully !</h1>
@@ -27,8 +30,9 @@ if (isset($_POST['submit'])) {
 <div class="col-sm-6 col-sm-offset-3">
 <form class="" action="index.php" method="post">
   <div id="verif_form">
-    <div class="panel panel-heading">
-      <span style="padding:15px;"class="alert alert-danger">You must get verification code first to use sms gate</span>
+    <div class="jumbotron">
+      <h1>Verify the code</h1>
+      <p>You must get verification code first to use sms gate</p>
     </div>
     <div class="form-group">
       <label for="code">Verification Code</label>
@@ -50,15 +54,4 @@ if (isset($_POST['submit'])) {
     </div>
 </form>
 </div>
-<script type="text/javascript">
-  $(document).ready(function() {
-  var check = $('#checker').val();
-    if(check == 'success'){
-      console.log(check);
-     $('#hide').removeClass('hidden');
-     $('#verif_form').addClass('hidden');
-    }
-     $('#msg_send').delay(5000).fadeOut(400);
-  });
-</script>
  <?php require '../includes/footer.php'; ?>
