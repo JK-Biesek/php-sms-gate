@@ -1,7 +1,7 @@
 <?php require '../includes/header.php';
 
 use Twilio\Rest\Client;
-var_dump($_SESSION['code']);
+
 $verifier = false;
 if(isset($_POST['verify'])){
   $verif_code = $_POST['code'];
@@ -26,10 +26,16 @@ if (isset($_POST['submit'])) {
 <h1> SMS GATE</h1>
 <div class="col-sm-6 col-sm-offset-3">
 <form class="" action="index.php" method="post">
-  <div class="form-group" id="verif_form">
-    <label for="code">Verification Code</label>
-    <input type="hidden" value="<?php echo $verifier; ?>" id="checker">
-    <input type="text" name="code" class="form-control" placeholder="Enter Code">
+  <div id="verif_form">
+    <div class="panel panel-heading">
+      <span style="padding:15px;"class="alert alert-danger">You must get verification code first to use sms gate</span>
+    </div>
+    <div class="form-group">
+      <label for="code">Verification Code</label>
+      <input type="hidden" value="<?php echo $verifier; ?>" id="checker">
+      <input type="text" name="code" class="form-control" placeholder="Enter Code">
+    </div>
+      <input type="submit" name="verify" value="Verify" id="verif_form" class="btn btn-primary btn-block">
   </div>
   <div id="hide" class="hidden">
     <div class="form-group">
@@ -42,7 +48,6 @@ if (isset($_POST['submit'])) {
     </div>
   <input type="submit" name="submit" value="Send" class="btn btn-primary btn-block">
     </div>
-    <input type="submit" name="verify" value="Verify" id="verif_form" class="btn btn-primary btn-block">
 </form>
 </div>
 <script type="text/javascript">
@@ -51,6 +56,7 @@ if (isset($_POST['submit'])) {
     if(check == 'success'){
       console.log(check);
      $('#hide').removeClass('hidden');
+     $('#verif_form').addClass('hidden');
     }
   });
 </script>
