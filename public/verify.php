@@ -11,7 +11,7 @@ if(isset($_POST['code'])){
 <form class="" action="verify.php" method="post">
   <div class="form-group">
     <label for="number">Show Your verification code</label>
-    <input type="tel" name="phone" class="form-control" id="phone" value="<?php echo ($reveal ? $code : '')?>">
+    <input type="text" name="phone" class="form-control" id="phone" value="<?php echo ($reveal ? $code : '')?>">
   </div>
   <input type="submit" name="code" value="Show code" class="btn btn-primary btn-block">
 </form>
